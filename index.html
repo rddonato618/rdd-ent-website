@@ -55,9 +55,10 @@
             pointer-events: none;
             animation: float 20s ease-in-out infinite;
         }
-        .orb-1 { width: 500px; height: 500px; background: rgba(214,48,49,0.08); top: -10%; left: -5%; animation-delay: 0s; }
-        .orb-2 { width: 400px; height: 400px; background: rgba(178,190,195,0.06); bottom: 10%; right: -5%; animation-delay: -7s; }
-        .orb-3 { width: 300px; height: 300px; background: rgba(214,48,49,0.05); top: 60%; left: 40%; animation-delay: -14s; }
+        .orb-1 { width: 600px; height: 600px; background: rgba(214,48,49,0.12); top: -10%; left: -5%; animation-delay: 0s; }
+        .orb-2 { width: 500px; height: 500px; background: rgba(178,190,195,0.08); bottom: 10%; right: -5%; animation-delay: -7s; }
+        .orb-3 { width: 400px; height: 400px; background: rgba(214,48,49,0.08); top: 60%; left: 40%; animation-delay: -14s; }
+        .orb-4 { width: 350px; height: 350px; background: rgba(214,48,49,0.1); top: 20%; right: 15%; animation-delay: -3s; }
 
         @keyframes float {
             0%, 100% { transform: translate(0, 0) scale(1); }
@@ -97,10 +98,49 @@
             text-align: center; padding: 2rem;
         }
 
-        .hero-logo {
-            width: min(85vw, 90vh, 900px); height: auto;
+        .hero-logo-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 2rem;
-            filter: drop-shadow(0 0 80px rgba(214,48,49,0.2));
+        }
+
+        /* Red illumination behind logo */
+        .hero-logo-wrap::before {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            background: radial-gradient(circle, rgba(214,48,49,0.4) 0%, rgba(214,48,49,0.15) 40%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: glowPulse 4s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        /* Secondary silver/white glow layer */
+        .hero-logo-wrap::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 0;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.15); }
+        }
+
+        .hero-logo {
+            position: relative;
+            z-index: 1;
+            width: min(85vw, 90vh, 900px); height: auto;
+            filter: drop-shadow(0 0 40px rgba(214,48,49,0.25)) drop-shadow(0 0 100px rgba(214,48,49,0.1));
             animation: logoReveal 1.2s ease-out;
         }
 
@@ -312,6 +352,7 @@
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
 
     <nav id="nav">
         <img src="assets/logo.jpeg" alt="RDD Enterprises">
@@ -319,7 +360,9 @@
     </nav>
 
     <section class="hero">
-        <img src="assets/logo.jpeg" alt="RDD Enterprises" class="hero-logo">
+        <div class="hero-logo-wrap">
+            <img src="assets/logo.jpeg" alt="RDD Enterprises" class="hero-logo">
+        </div>
         <div class="hero-line"></div>
         <a href="#contact" class="hero-cta">
             Get in Touch
