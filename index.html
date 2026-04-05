@@ -127,7 +127,7 @@
             z-index: 1;
             width: min(95vw, 85vh, 1200px); height: auto;
             filter: drop-shadow(0 0 40px rgba(214,48,49,0.15)) drop-shadow(0 0 100px rgba(214,48,49,0.06));
-            animation: logoReveal 1.2s ease-out;
+            animation: logoReveal 1s ease-out;
         }
 
         @keyframes logoReveal {
@@ -142,12 +142,16 @@
             letter-spacing: 0.35em;
             text-transform: uppercase;
             margin-bottom: 2rem;
-            animation: ctaReveal 0.8s ease-out 0.5s both;
+            animation: ctaReveal 0.8s ease-out 1s both;
+        }
+
+        .hero-line-delayed {
+            animation: lineGrow 1s ease-out 3s both;
         }
 
         .hero-fade-in {
             opacity: 0; transform: translateY(20px);
-            animation: ctaReveal 1s ease-out 1.2s both;
+            animation: ctaReveal 1s ease-out 1.8s both;
         }
 
         /* ─── About section ─── */
@@ -176,7 +180,7 @@
             width: 80px; height: 2px;
             background: linear-gradient(90deg, var(--red), var(--silver));
             margin-bottom: 2rem;
-            animation: lineGrow 1s ease-out 0.4s both;
+            animation: lineGrow 1s ease-out 1.4s both;
         }
 
         @keyframes lineGrow {
@@ -194,7 +198,7 @@
             border-radius: 8px;
             transition: all 0.3s;
             box-shadow: 0 4px 25px var(--red-glow);
-            animation: ctaReveal 0.8s ease-out 0.7s both;
+            animation: ctaReveal 0.8s ease-out 3s both;
         }
         .hero-cta:hover {
             transform: translateY(-2px);
@@ -400,7 +404,7 @@
             <p class="about-text">RDD Enterprises is a private venture firm built around three principles: incubation, investment, and execution. We develop business concepts from the ground up, deploy capital into high-conviction opportunities, and provide the operational backbone to turn ventures into sustainable companies. Our portfolio spans multiple industries, with a focus on long-term value creation and disciplined growth.</p>
         </div>
 
-        <div class="hero-line"></div>
+        <div class="hero-line hero-line-delayed"></div>
         <a href="#contact" class="hero-cta">
             Get in Touch
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
