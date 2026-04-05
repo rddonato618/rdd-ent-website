@@ -145,6 +145,11 @@
             animation: ctaReveal 0.8s ease-out 0.5s both;
         }
 
+        .hero-fade-in {
+            opacity: 0; transform: translateY(20px);
+            animation: ctaReveal 1s ease-out 1.2s both;
+        }
+
         /* ─── About section ─── */
         .about-section {
             max-width: 700px;
@@ -390,7 +395,7 @@
         <p class="hero-tagline">Incubate. Invest. Execute.</p>
         <div class="hero-line"></div>
 
-        <div class="about-section" id="about">
+        <div class="about-section hero-fade-in" id="about">
             <h2 class="about-heading">About Us</h2>
             <p class="about-text">RDD Enterprises is a private venture firm built around three principles: incubation, investment, and execution. We develop business concepts from the ground up, deploy capital into high-conviction opportunities, and provide the operational backbone to turn ventures into sustainable companies. Our portfolio spans multiple industries, with a focus on long-term value creation and disciplined growth.</p>
         </div>
