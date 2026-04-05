@@ -49,13 +49,15 @@
 
         /* ─── Navigation ─── */
         nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+            position: fixed !important; top: 0 !important; left: 0; right: 0; z-index: 99999;
             padding: 1rem 2.5rem;
-            background: rgba(5,5,8,0.85);
+            background: rgba(5,5,8,0.95);
             backdrop-filter: blur(30px) saturate(1.5);
             border-bottom: 1px solid var(--glass-border);
             display: flex; justify-content: space-between; align-items: center;
             transition: padding 0.3s;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
         nav.scrolled { padding: 0.6rem 2.5rem; }
         nav img { height: 36px; width: auto; }
@@ -95,6 +97,7 @@
         .nav-dropdown-menu a {
             display: block; color: var(--text-dim); text-decoration: none;
             font-size: 0.85rem; font-weight: 300; letter-spacing: 0.15em;
+            text-transform: none;
             padding: 0.65rem 1rem; border-radius: 6px; transition: all 0.2s;
         }
         .nav-dropdown-menu a:hover { color: var(--text); background: var(--surface-hover); }
