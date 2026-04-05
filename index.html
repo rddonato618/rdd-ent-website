@@ -66,7 +66,36 @@
             border-radius: 6px;
             transition: all 0.3s;
         }
-        nav a:hover { color: var(--text); border-color: var(--glass-border); background: var(--surface); }
+        /* ─── Nav dropdown ─── */
+        .nav-dropdown { position: relative; }
+        .nav-menu-btn {
+            color: var(--text-dim); background: none; border: 1px solid transparent;
+            font-family: inherit; font-size: 0.8rem; font-weight: 600;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            padding: 0.5rem 1.2rem; border-radius: 6px;
+            cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem;
+            transition: all 0.3s;
+        }
+        .nav-menu-btn:hover { color: var(--text); border-color: var(--glass-border); background: var(--surface); }
+        .nav-menu-btn svg { transition: transform 0.3s; }
+        .nav-dropdown.open .nav-menu-btn svg { transform: rotate(180deg); }
+        .nav-dropdown-menu {
+            position: absolute; top: calc(100% + 0.5rem); right: 0;
+            background: rgba(15,15,20,0.95); backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); border-radius: 10px;
+            padding: 0.4rem; min-width: 160px;
+            opacity: 0; visibility: hidden; transform: translateY(-8px);
+            transition: all 0.25s ease;
+        }
+        .nav-dropdown.open .nav-dropdown-menu {
+            opacity: 1; visibility: visible; transform: translateY(0);
+        }
+        .nav-dropdown-menu a {
+            display: block; color: var(--text-dim); text-decoration: none;
+            font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em;
+            padding: 0.65rem 1rem; border-radius: 6px; transition: all 0.2s;
+        }
+        .nav-dropdown-menu a:hover { color: var(--text); background: var(--surface-hover); }
 
         /* ─── Hero ─── */
         .hero {
@@ -108,6 +137,28 @@
             text-transform: uppercase;
             margin-bottom: 2rem;
             animation: ctaReveal 0.8s ease-out 0.5s both;
+        }
+
+        /* ─── About section ─── */
+        .about-section {
+            max-width: 700px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .about-heading {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            font-weight: 300;
+            letter-spacing: 0.35em;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text {
+            color: var(--text-dim);
+            font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+            font-weight: 300;
+            line-height: 1.9;
         }
 
         .hero-line {
@@ -313,7 +364,16 @@
 
     <nav id="nav">
         <img src="assets/logo-official.png" alt="RDD Enterprises">
-        <a href="#contact">Contact Us</a>
+        <div class="nav-dropdown">
+            <button class="nav-menu-btn" id="menuBtn">
+                Menu
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="nav-dropdown-menu" id="dropdownMenu">
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+        </div>
     </nav>
 
     <section class="hero">
@@ -322,14 +382,17 @@
         </div>
         <p class="hero-tagline">Incubate. Invest. Execute.</p>
         <div class="hero-line"></div>
+
+        <div class="about-section" id="about">
+            <h2 class="about-heading">ABOUT US</h2>
+            <p class="about-text">RDD Enterprises is a private venture firm built around three principles: incubation, investment, and execution. We develop business concepts from the ground up, deploy capital into high-conviction opportunities, and provide the operational backbone to turn ventures into sustainable companies. Our portfolio spans multiple industries, with a focus on long-term value creation and disciplined growth.</p>
+        </div>
+
+        <div class="hero-line"></div>
         <a href="#contact" class="hero-cta">
             Get in Touch
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <div class="scroll-hint">
-            <span></span>
-            Scroll
-        </div>
     </section>
 
     <section class="contact" id="contact">
@@ -470,6 +533,16 @@
 
             requestAnimationFrame(draw);
         })();
+
+        // Nav dropdown toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const dropdown = menuBtn.parentElement;
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('open');
+        });
+        document.addEventListener('click', () => dropdown.classList.remove('open'));
+        dropdown.querySelector('.nav-dropdown-menu').addEventListener('click', () => dropdown.classList.remove('open'));
 
         // Nav shrink on scroll
         const nav = document.getElementById('nav');
