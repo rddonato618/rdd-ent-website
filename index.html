@@ -31,6 +31,8 @@
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.12em;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
@@ -70,8 +72,8 @@
         .nav-dropdown { position: relative; }
         .nav-menu-btn {
             color: var(--text-dim); background: none; border: 1px solid transparent;
-            font-family: inherit; font-size: 0.8rem; font-weight: 600;
-            letter-spacing: 0.12em; text-transform: uppercase;
+            font-family: inherit; font-size: 0.85rem; font-weight: 300;
+            letter-spacing: 0.2em;
             padding: 0.5rem 1.2rem; border-radius: 6px;
             cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem;
             transition: all 0.3s;
@@ -92,7 +94,7 @@
         }
         .nav-dropdown-menu a {
             display: block; color: var(--text-dim); text-decoration: none;
-            font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em;
+            font-size: 0.85rem; font-weight: 300; letter-spacing: 0.15em;
             padding: 0.65rem 1rem; border-radius: 6px; transition: all 0.2s;
         }
         .nav-dropdown-menu a:hover { color: var(--text); background: var(--surface-hover); }
@@ -100,6 +102,7 @@
         /* ─── Hero ─── */
         .hero {
             position: relative; z-index: 1;
+            padding-top: 80px;
             min-height: 100vh;
             display: flex; flex-direction: column;
             align-items: center; justify-content: center;
@@ -178,8 +181,8 @@
             padding: 0.85rem 2.2rem;
             background: linear-gradient(135deg, var(--red), #c0392b);
             color: #fff; text-decoration: none;
-            font-size: 0.82rem; font-weight: 700;
-            letter-spacing: 0.1em; text-transform: uppercase;
+            font-size: 0.9rem; font-weight: 300;
+            letter-spacing: 0.2em;
             border-radius: 8px;
             transition: all 0.3s;
             box-shadow: 0 4px 25px var(--red-glow);
@@ -221,8 +224,8 @@
 
         .section-label {
             display: inline-block;
-            font-size: 0.7rem; font-weight: 700;
-            letter-spacing: 0.2em; text-transform: uppercase;
+            font-size: 0.8rem; font-weight: 300;
+            letter-spacing: 0.2em;
             color: var(--red);
             margin-bottom: 1rem;
             padding: 0.3rem 0.8rem;
@@ -233,7 +236,7 @@
 
         .section-title {
             font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 800;
+            font-weight: 300;
             margin-bottom: 0.5rem;
             background: linear-gradient(135deg, var(--text) 0%, var(--silver) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -266,10 +269,10 @@
 
         .form-group label {
             display: block;
-            font-size: 0.75rem; font-weight: 600;
+            font-size: 0.8rem; font-weight: 300;
             color: var(--text-dim);
             margin-bottom: 0.4rem;
-            letter-spacing: 0.06em; text-transform: uppercase;
+            letter-spacing: 0.15em;
         }
 
         .form-group input,
@@ -305,9 +308,9 @@
             background: linear-gradient(135deg, var(--red), #c0392b);
             color: #fff; border: none;
             border-radius: 8px;
-            font-family: inherit; font-size: 0.82rem;
-            font-weight: 700; letter-spacing: 0.08em;
-            text-transform: uppercase; cursor: pointer;
+            font-family: inherit; font-size: 0.85rem;
+            font-weight: 300; letter-spacing: 0.2em;
+            cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 4px 20px var(--red-glow);
         }
@@ -338,7 +341,7 @@
             text-align: center;
             border-top: 1px solid var(--glass-border);
         }
-        footer p { color: var(--text-dim); font-size: 0.75rem; letter-spacing: 0.05em; }
+        footer p { color: var(--text-dim); font-size: 0.75rem; letter-spacing: 0.15em; }
 
         /* ─── Scroll reveal ─── */
         .reveal {
